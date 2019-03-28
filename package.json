@@ -12,6 +12,7 @@
   "dependencies": {
     "bluebird": "^3.5.3",
     "dotenv": "^7.0.0",
+    "hapi": "^18.1.0",
     "puppeteer": "^1.13.0",
     "puppeteer-lambda": "^1.0.15",
     "request": "^2.88.0"
