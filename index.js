@@ -34,11 +34,12 @@ async function start(data) {
     await fill(page, data)
     await page.waitFor(4000)
     await logout(page,browser)
+    console.log("done....");
   } catch (e) {
     console.log(e);
     console.log("error");
+    throw new Error("error!")
     }
-    console.log("done....");
 }
 
 async function logout(page,browser) {
@@ -80,10 +81,10 @@ async function fill(page, data ){
 
 
 const data = {
-  in : "x",
-  out : "x",
-  activity : "x",
-  desc : "x",
+  in : "10.10",
+  out : "19.20",
+  activity : "adding new service ",
+  desc : "adding new service to services list",
 }
 
 start(data)
