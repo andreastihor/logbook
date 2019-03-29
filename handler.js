@@ -28,6 +28,9 @@ const lineService = require('./lineService')
     if(event.message.text == "adduser --admin") {
       return lineService.addId(event)
     }
+    if(event.message.text == "--admin") {
+      return lineService.admin(event)
+    }
     return lineService.notFound(event)
   }
 

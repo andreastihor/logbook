@@ -4,10 +4,7 @@ const userId = [
   'U85303935ae66482dd859deea2d99b0ae'
 ]
 const users = {
-  'U85303935ae66482dd859deea2d99b0ae' : {
-    username: '',
-    password : ''
-  }
+
 }
 
 function getUserId(event) {
@@ -56,6 +53,7 @@ function help(event) {
 function insertUser(event) {
   const user = event.message.text.split(',')
   if (event.source.userId.indexOf(userId) == 0) {
+    users[getUserId(event)] = {}
     users[getUserId(event)].username = user[1]
     users[getUserId(event)].password = user[2]
     return lineServer.replyMessage(event.replyToken, {
@@ -87,7 +85,7 @@ function changePassword(event) {
 
 function updatePassword(event) {
   const newPassword = event.message.text.split(',')[1]
-  if (users[getUserId(event)].password == "") {
+  if (users[getUserId(event)] == undefined && users[getUserId(event)].password == "") {
     return lineServer.replyMessage(event.replyToken, {
       type: 'text',
       text: `please fill in password first!`
@@ -127,6 +125,7 @@ module.exports = {
   help,
   checkUsers,
   insertUser,
+  changePassword,
   updatePassword,
   addId,
   admin,
