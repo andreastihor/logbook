@@ -1,11 +1,4 @@
 const lineServer = require('./lineServer')
-const mysql = require('mysql')
-const connection = mysql.createConnection({
-  host: 'https://miami.viewen.com:2083',
-  user : 'andreast_logbook',
-  password : 'andre151098',
-  database : 'andreast_logbook'
-})
 
 
   function handleEvent (event) {
@@ -22,16 +15,9 @@ const connection = mysql.createConnection({
   }
 
   function user(event) {
-    let user = []
-    connection.query('SELECT * from user',(err,row,fields) => {
-      if (!err) {
-      }
-      console.log(err);
-    })
-    connection.close()
     return lineServer.replyMessage(event.replyToken, {
       type: 'text',
-      text: user.toString()
+      text: event.userId,
     });
   }
 

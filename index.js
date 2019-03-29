@@ -3,6 +3,14 @@ const Hapi = require('hapi')
 const Promise = require('bluebird')
 const handleLineEvent = require('./handler')
 
+const mysql = require('mysql')
+const connection = mysql.createConnection({
+  hostname: '173.208.189.34',
+  user : 'andreast_logbook',
+  password : 'andre151098',
+  database : 'andreast_logbook'
+})
+
 // Create a server with a host and port
 const server=Hapi.server({
     host:'0.0.0.0',
@@ -33,6 +41,16 @@ server.route({
   method : 'GET',
   path : '/',
   handler : (req,h) => {
+    // connection.connect()
+    // connection.query('SELECT * from user',(err,rows,fields) => {
+    //   if (!err) {
+    //     console.log(rows);
+    //   }
+    //   console.log(err);
+    //   console.log("error");
+    // })
+    // connection.end()
+    
     return "test Completed"
   }
 })
