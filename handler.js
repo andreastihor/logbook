@@ -3,7 +3,6 @@ const lineServer = require('./lineServer')
 
 
   function handleEvent (event) {
-
     if (event.message.text == "test") {
       return testing(event)
     }
@@ -23,6 +22,8 @@ const lineServer = require('./lineServer')
       text: "apalo"
     });
   }
+
+
 
 
 

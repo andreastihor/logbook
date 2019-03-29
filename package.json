@@ -14,8 +14,11 @@
     "bluebird": "^3.5.3",
     "dotenv": "^7.0.0",
     "hapi": "^18.1.0",
+    "mysql2": "^1.6.5",
     "puppeteer": "^1.13.0",
     "puppeteer-lambda": "^1.0.15",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "sequelize": "^5.2.4",
+    "sequelize-cli": "^5.4.0"
   }
 }
