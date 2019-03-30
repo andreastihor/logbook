@@ -32,6 +32,7 @@ function help(event) {
     "/help",
     "addUser",
     "change password",
+    "get id",
 
   ]
   return lineServer.replyMessage(event.replyToken, {
@@ -130,7 +131,14 @@ function deleteUser(event) {
       text: `not qualified!`
     });
   }
+}
 
+
+function getId(event) {
+  return lineServer.replyMessage(event.replyToken, {
+    type: 'text',
+    text: getUserId(event)
+  });
 }
 
 module.exports = {
@@ -144,4 +152,5 @@ module.exports = {
   addId,
   admin,
   deleteUser,
+  getId,
 }
