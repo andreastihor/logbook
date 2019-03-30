@@ -132,7 +132,7 @@ function deleteUser(event) {
       text: `not qualified!`
     });
   }
-  const id = event.source.text.split(',')[1]
+  const id = event.message.text.split(',')[1]
   if (userId.indexOf(id) != -1) {
     userId = userId.filter(e => e !== id)
     return lineServer.replyMessage(event.replyToken, {
@@ -142,7 +142,7 @@ function deleteUser(event) {
   }
   return lineServer.replyMessage(event.replyToken, {
     type: 'text',
-    text: `user not found'
+    text: `user not found`
   });
 }
 
