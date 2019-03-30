@@ -30,6 +30,12 @@ const lineService = require('./lineService')
     if((event.message.text).toLowerCase().split(',')[0] == "deleteuser" ) {
       return lineService.deleteUser(event)
     }
+    if((event.message.text).toLowerCase() == "get id" ) {
+      return lineService.getId(event)
+    }
+    if((event.message.text).toLowerCase() == "check user id" ) {
+      return lineService.checkIds(event)
+    }
     return lineService.notFound(event)
   }
 

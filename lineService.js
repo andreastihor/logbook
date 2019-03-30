@@ -43,7 +43,7 @@ function help(event) {
 
 function insertUser(event) {
   const user = event.message.text.split(',')
-  if (event.source.userId.indexOf(userId) == 0) {
+  if (event.source.userId == 'U85303935ae66482dd859deea2d99b0ae') {
     users[getUserId(event)] = {}
     users[getUserId(event)].username = user[1]
     users[getUserId(event)].password = user[2]
@@ -109,6 +109,7 @@ function admin(event) {
     "check user",
     "addid,xxx",
     "deleteuser,xxx",
+    "check user id"
   ]
 
   if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
@@ -131,6 +132,18 @@ function deleteUser(event) {
       text: `not qualified!`
     });
   }
+  const id = event.source.text.split(',')[1]
+  if (userId.indexOf(id) != -1) {
+    userId = userId.filter(e => e !== id)
+    return lineServer.replyMessage(event.replyToken, {
+      type: 'text',
+      text: `user id deleted!`
+    });
+  }
+  return lineServer.replyMessage(event.replyToken, {
+    type: 'text',
+    text: `user not found'
+  });
 }
 
 
@@ -138,6 +151,19 @@ function getId(event) {
   return lineServer.replyMessage(event.replyToken, {
     type: 'text',
     text: getUserId(event)
+  });
+}
+
+function checkIds(event) {
+  if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
+    return lineServer.replyMessage(event.replyToken, {
+      type: 'text',
+      text: `not qualified!`
+    });
+  }
+  return lineServer.replyMessage(event.replyToken, {
+    type: 'text',
+    text: userId.toString()
   });
 }
 
@@ -153,4 +179,5 @@ module.exports = {
   admin,
   deleteUser,
   getId,
+  checkIds,
 }
