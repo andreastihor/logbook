@@ -3,45 +3,35 @@ const lineService = require('./lineService')
 
 
   function handleEvent (event) {
-    if (event.message.text == "test") {
-      return lineService.testing(event)
-    }
-    if (event.message.text == "addUser") {
+    if ((event.message.text).toLowerCase() == "add user") {
       return lineService.addUser(event)
     }
-    if (event.message.text.split(',')[0] == "adduser") {
+    if ((event.message.text).toLowerCase().split(',')[0] == "adduser") {
       return lineService.insertUser(event)
     }
-    if (event.message.text == "/help") {
+    if ((event.message.text).toLowerCase() == "/help") {
       return lineService.help(event)
     }
-    if (event.message.text == "check admin") {
+    if ((event.message.text).toLowerCase() == "check user") {
       return lineService.checkUsers(event)
     }
-
-    if (event.message.text == "change password") {
+    if ((event.message.text).toLowerCase() == "change password") {
       return lineService.changePassword(event)
     }
-    if (event.message.text.split(',')[0] == "password") {
+    if ((event.message.text).toLowerCase().split(',')[0] == "password") {
       return lineService.updatePassword(event)
     }
-    if(event.message.text == "adduser --admin") {
+    if((event.message.text).toLowerCase().split(',')[0] == "addid") {
       return lineService.addId(event)
     }
-    if(event.message.text == "--admin") {
+    if((event.message.text).toLowerCase() == "admin") {
       return lineService.admin(event)
+    }
+    if((event.message.text).toLowerCase().split(',')[0] == "deleteuser" ) {
+      return lineService.deleteUser(event)
     }
     return lineService.notFound(event)
   }
-
-  function handleAddUser(event) {
-
-  }
-
-
-
-
-
 
 
 module.exports = handleEvent

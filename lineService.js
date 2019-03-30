@@ -11,14 +11,6 @@ function getUserId(event) {
   return  event.source.userId
 }
 
-function testing(event) {
-
-  return lineServer.replyMessage(event.replyToken, {
-    type: 'text',
-    text: "apalo"
-  });
-}
-
 function notFound(event) {
   return lineServer.replyMessage(event.replyToken, {
     type: 'text',
@@ -33,14 +25,12 @@ function addUser(event) {
     text: `please Input username and password
       ex : adduser,20xxxxx,password`
   });
-
 }
 
 function help(event) {
   const keyword = [
     "/help",
     "addUser",
-    "test",
     "change password",
 
   ]
@@ -100,6 +90,12 @@ function updatePassword(event) {
 }
 
 function addId(event) {
+  if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
+    return lineServer.replyMessage(event.replyToken, {
+      type: 'text',
+      text: `not qualified!`
+    });
+  }
   userId.push(event.source.userId)
   return lineServer.replyMessage(event.replyToken, {
     type: 'text',
@@ -109,17 +105,35 @@ function addId(event) {
 
 function admin(event) {
   const key = [
-    "check admin",
-    "adduser --admin"
+    "check user",
+    "addid,xxx",
+    "deleteuser,xxx",
   ]
+
+  if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
+    return lineServer.replyMessage(event.replyToken, {
+      type: 'text',
+      text: `not qualified!`
+    });
+  }
+
   return lineServer.replyMessage(event.replyToken, {
     type: 'text',
     text: key.toString()
   });
 }
 
+function deleteUser(event) {
+  if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
+    return lineServer.replyMessage(event.replyToken, {
+      type: 'text',
+      text: `not qualified!`
+    });
+  }
+
+}
+
 module.exports = {
-  testing,
   notFound,
   addUser,
   help,
@@ -129,4 +143,5 @@ module.exports = {
   updatePassword,
   addId,
   admin,
+  deleteUser,
 }
