@@ -76,7 +76,7 @@ function changePassword(event) {
 
 function updatePassword(event) {
   const newPassword = event.message.text.split(',')[1]
-  if (users[getUserId(event)] == undefined && users[getUserId(event)].password == "") {
+  if (users[getUserId(event)] == undefined || users[getUserId(event)].password == "") {
     return lineServer.replyMessage(event.replyToken, {
       type: 'text',
       text: `please fill in password first!`
