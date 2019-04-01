@@ -20,30 +20,39 @@ function deleteUserGet(event) {
     ex : delete,userId`)
 }
 
-function _checkAdmin(event) {
-  if (!service.isAdmin(event)) return service.message(`You're not admin!!!`)
-  return
+function _checkAdmin (event) {
+
+  if (service.isAdmin(event)) return true
+  return false
 }
 
 function deleteUserPost(event,id) {
-  _checkAdmin(event)  
+  if (!_checkAdmin(event)) {
+    return service.message(`Youre'not admin`)
+  }
   return service.deleteUser(event,id)
 }
 
 function checkUsers(event) {
-  _checkAdmin(event)
+  if (!_checkAdmin(event)) {
+    return service.message(`Youre'not admin`)
+  }
   return service.checkUsers(event)
 }
 
 function inserUserIdGet(event) {
-  _checkAdmin(event)
+  if (!_checkAdmin(event)) {
+    return service.message(`Youre'not admin`)
+  }
   if(service.checkUserIdExist(event)) return service.message(event,`You're id has already been registered!`)
   return service.message(event,`Please insert userId start with insertid,
     ex : insertid,xxx `)
 }
 
 function insertUserIdPost(event,id) {
-  _checkAdmin(event)
+  if (!_checkAdmin(event)) {
+    return service.message(`Youre'not admin`)
+  }
   return service.insertId(event,id)
 }
 
@@ -84,8 +93,8 @@ function getAdminCommand(event) {
     '/check user',
     '/check user id',
   ]
-  if (!service.isAdmin(event)) {
-    return service.message(event,`Youre not an admin!!`)
+  if (!_checkAdmin(event)) {
+    return service.message(`Youre'not admin`)
   }
   return service.message(event,help.toString())
 }

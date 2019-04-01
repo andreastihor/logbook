@@ -8,7 +8,6 @@ const lineController = require('../controller/lineController')
 
     if ((event.message.text).toLowerCase().split(',')[0] == "insert" || (event.message.text).toLowerCase().split(',')[0] == "update" ) {
       const data = event.message.text.split(',')
-      console.log(data.length);
       if ( data.length < 3 || data[1] == "" || data[2] == "") {
         return lineController.inComplete(event,"Please fill username or password")
       }
