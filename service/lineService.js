@@ -1,12 +1,12 @@
 const lineServer = require('../lineServer')
-const {myId, data, userIds.toString(), userObject } = require('../container')
+const {myId, data, userIds, userObject } = require('../container')
 
 function _getUserId(event) {
   return  event.source.userId
 }
 
 function checkUserIdExist(event) {
-   if (userIds.toString().indexOf( _getUserId(event) ) >= 0  ) return true
+   if (userIds.indexOf( _getUserId(event) ) >= 0  ) return true
    return false
 }
 
@@ -35,7 +35,7 @@ function checkUsers(event) {
 }
 
 function insertId(event,id) {
-  userIds.toString().push(id)
+  userIds.push(id)
   return message(event,`User Id Inserted!!`)
 }
 
