@@ -15,8 +15,8 @@ function updateUserGet(event) {
     ex : update,username,password`)
 }
 
-function deleteUserGet(event) {
-  return service.message(`Please input userId start with delete Keyword,
+function deleteUserGet(event) {a
+  return service.message(event,`Please input userId start with delete Keyword,
     ex : delete,userId`)
 }
 
@@ -53,7 +53,7 @@ function changePasswordGet(event) {
 }
 
 function changePasswordPost(event,password) {
-  if (service.checkUserObjExist(event)) {
+  if (!service.checkUserObjExist(event)) {
     return service.message(event,`Register your username and password first!`)
   }
   return service.changePassword(event,password)
