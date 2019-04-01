@@ -49,7 +49,7 @@ const lineController = require('../controller/lineController')
     }
 
     if ((event.message.text).toLowerCase().split(',')[0] == "insertid") {
-      const id = event.message.text.toLowerCase().split(',')[1]
+      const id = event.message.text.split(',')[1]
       if (id == undefined || id == "") {
         return lineController.inComplete(event,"Please insert id!")
       }
