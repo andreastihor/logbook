@@ -10,7 +10,7 @@ const lineController = require('../controller/lineController')
       const data = event.message.text.split(',')
       console.log(data.length);
       if ( data.length < 3 || data[1] == "" || data[2] == "") {
-        lineController.inComplete(event,"Please fill username or password")
+        return lineController.inComplete(event,"Please fill username or password")
       }
       return lineController.addUserPost(event,data[1],data[2])
     }
