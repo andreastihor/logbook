@@ -27,21 +27,21 @@ function _checkAdmin (event) {
 
 function deleteUserPost(event,id) {
   if (!_checkAdmin(event)) {
-    return service.message(`Youre'not admin`)
+    return service.message(event,`Youre'not admin`)
   }
   return service.deleteUser(event,id)
 }
 
 function checkUsers(event) {
   if (!_checkAdmin(event)) {
-    return service.message(`Youre'not admin`)
+    return service.message(event,`Youre'not admin`)
   }
   return service.checkUsers(event)
 }
 
 function inserUserIdGet(event) {
   if (!_checkAdmin(event)) {
-    return service.message(`Youre'not admin`)
+    return service.message(event,`Youre'not admin`)
   }
   if(service.checkUserIdExist(event)) return service.message(event,`You're id has already been registered!`)
   return service.message(event,`Please insert userId start with insertid,
