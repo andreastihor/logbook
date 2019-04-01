@@ -206,7 +206,7 @@ function message(event,message) {
 
 
 
-module.exports = {
+module.exports.service = {
   checkUserIdExist,
   isAdmin,
   addUser,
