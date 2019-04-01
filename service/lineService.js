@@ -48,9 +48,9 @@ function checkUserObjExist(event) {
 
 function changePassword(event,password) {
   if(userObject[_getUserId(event)].password == "") {
-    return message(event,`Please FIll Password First!`)
+    return message(event,`Please Fill Password First!`)
   }
-  userObject[_getUserId(event)].password == password
+  userObject[_getUserId(event)].password = password
   return message(event,`Successfully Change Password!`)
 }
 
