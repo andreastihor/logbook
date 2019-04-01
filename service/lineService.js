@@ -80,7 +80,7 @@ module.exports = {
   checkUserObjExist,
   changePassword,
   getUserId,
-  checkuserIds,
+  checkUserIds,
 
 
   message,
