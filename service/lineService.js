@@ -59,6 +59,9 @@ function getUserId(event) {
 }
 
 function checkUserIds(event) {
+  if (userIds.length == "") {
+    return message(event,"[]")
+  }
   return message(event,userIds.toString())
 }
 
