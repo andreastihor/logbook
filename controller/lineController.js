@@ -82,7 +82,7 @@ function getAdminCommand(event) {
     '/insert id',
     '/delete user',
     '/check user',
-    /check user id
+    '/check user id',
   ]
   if (!service.isAdmin(event)) {
     return service.message(event,`Youre not an admin!!`)
