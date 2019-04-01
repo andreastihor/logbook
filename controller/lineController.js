@@ -37,8 +37,8 @@ function checkUsers(event) {
 
 function inserUserIdGet(event) {
   _checkAdmin(event)
-  if(service.checkUserIdExist(event)) return service.message(`You're id has already been registered!`)
-  return service.message(`Please insert userId start with insertid,
+  if(service.checkUserIdExist(event)) return service.message(event,`You're id has already been registered!`)
+  return service.message(event,`Please insert userId start with insertid,
     ex : insertid,xxx `)
 }
 
