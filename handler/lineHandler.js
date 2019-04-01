@@ -67,6 +67,10 @@ const lineController = require('../controller/lineController')
     if((event.message.text).toLowerCase() == "/admin") {
       return lineController.getAdminCommand(event)
     }
+    if((event.message.text).toLowerCase() == "/check user id") {
+      return lineController.checkUserIds(event)
+    }
+
 
     return lineController.notFound(event)
   }

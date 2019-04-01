@@ -1,12 +1,12 @@
 const lineServer = require('../lineServer')
-const {myId, data, usersId, userObject } = require('../container')
+const {myId, data, userIds.toString(), userObject } = require('../container')
 
 function _getUserId(event) {
   return  event.source.userId
 }
 
 function checkUserIdExist(event) {
-   if (usersId.indexOf( _getUserId(event) ) >= 0  ) return true
+   if (userIds.toString().indexOf( _getUserId(event) ) >= 0  ) return true
    return false
 }
 
@@ -35,7 +35,7 @@ function checkUsers(event) {
 }
 
 function insertId(event,id) {
-  usersId.push(id)
+  userIds.toString().push(id)
   return message(event,`User Id Inserted!!`)
 }
 
@@ -58,7 +58,9 @@ function getUserId(event) {
   return message(event,_getUserId(event))
 }
 
-
+function checkUserIds(event) {
+  return message(event,userIds.toString())
+}
 
 
 function message(event,message) {
@@ -67,144 +69,6 @@ function message(event,message) {
     text: message,
   });
 }
-//
-//
-// function help(event) {
-//   const keyword = [
-//     "/help",
-//     "addUser",
-//     "change password",
-//     "get id",
-//
-//   ]
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: keyword.toString()
-//   });
-// }
-//
-// function insertUser(event) {
-//   const user = event.message.text.split(',')
-//   if (event.source.userId == 'U85303935ae66482dd859deea2d99b0ae') {
-//     users[getUserId(event)] = {}
-//     users[getUserId(event)].username = user[1]
-//     users[getUserId(event)].password = user[2]
-//     return lineServer.replyMessage(event.replyToken, {
-//       type: 'text',
-//       text: "succesfully registered!"
-//     });
-//   }
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: "sorry, youre not qualified!"
-//   });
-// }
-//
-//
-//
-// function changePassword(event) {
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: `input password
-//       ex password,xxxxxxx`
-//   });
-// }
-//
-//
-// function updatePassword(event) {
-//   const newPassword = event.message.text.split(',')[1]
-//   if (users[getUserId(event)] == undefined || users[getUserId(event)].password == "") {
-//     return lineServer.replyMessage(event.replyToken, {
-//       type: 'text',
-//       text: `please fill in password first!`
-//     });
-//   }
-//
-//   users[getUserId(event)].password = newPassword
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: `successfully change password`
-//   });
-// }
-//
-// function addId(event) {
-//   if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
-//     return lineServer.replyMessage(event.replyToken, {
-//       type: 'text',
-//       text: `not qualified!`
-//     });
-//   }
-//   userId.push(event.source.userId)
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: `successfully add user ID`
-//   });
-// }
-//
-// function admin(event) {
-//   const key = [
-//     "check user",
-//     "addid,xxx",
-//     "deleteuser,xxx",
-//     "check user id"
-//   ]
-//
-//   if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
-//     return lineServer.replyMessage(event.replyToken, {
-//       type: 'text',
-//       text: `not qualified!`
-//     });
-//   }
-//
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: key.toString()
-//   });
-// }
-//
-// function deleteUser(event) {
-//   if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
-//     return lineServer.replyMessage(event.replyToken, {
-//       type: 'text',
-//       text: `not qualified!`
-//     });
-//   }
-//   const id = event.message.text.split(',')[1]
-//   if (userId.indexOf(id) != -1) {
-//     userId = userId.filter(e => e !== id)
-//     return lineServer.replyMessage(event.replyToken, {
-//       type: 'text',
-//       text: `user id deleted!`
-//     });
-//   }
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: `user not found`
-//   });
-// }
-//
-//
-// function getId(event) {
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: getUserId(event)
-//   });
-// }
-//
-// function checkIds(event) {
-//   if (event.source.userId != 'U85303935ae66482dd859deea2d99b0ae' ) {
-//     return lineServer.replyMessage(event.replyToken, {
-//       type: 'text',
-//       text: `not qualified!`
-//     });
-//   }
-//   return lineServer.replyMessage(event.replyToken, {
-//     type: 'text',
-//     text: userId.toString()
-//   });
-// }
-
-
 
 module.exports = {
   checkUserIdExist,
@@ -216,6 +80,7 @@ module.exports = {
   checkUserObjExist,
   changePassword,
   getUserId,
+  checkuserIds,
 
 
   message,

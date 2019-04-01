@@ -8,12 +8,12 @@ const data = {
   description : ''
 }
 
-const usersId = []
+const userIds = []
 const userObject = {}
 
 module.exports = {
   myId,
   data,
-  usersId,
+  userIds,
   userObject,
 }

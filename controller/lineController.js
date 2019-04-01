@@ -94,6 +94,10 @@ function inComplete(event,message) {
   return service.message(event,message)
 }
 
+function checkUserIds(event) {
+  return service.checkUserIds(event)
+}
+
 module.exports = {
   addUserGet,
   addUserPost,
@@ -108,7 +112,7 @@ module.exports = {
   getUserId,
   getCommand,
   getAdminCommand,
-
+  checkUserIds,
 
 
   notFound,
