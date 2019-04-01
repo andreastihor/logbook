@@ -81,7 +81,8 @@ function getAdminCommand(event) {
   const help = [
     '/insert id',
     '/delete user',
-    '/check user'
+    '/check user',
+    /check user id
   ]
   if (!service.isAdmin(event)) {
     return service.message(event,`Youre not an admin!!`)
