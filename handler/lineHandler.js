@@ -40,7 +40,7 @@ const lineController = require('../controller/lineController')
     }
 
     if ((event.message.text).toLowerCase().split(',')[0] =="delete") {
-      const id = event.source.userId
+      const id = event.message.text[1]
       return lineController.deleteUserPost(event,id)
     }
 

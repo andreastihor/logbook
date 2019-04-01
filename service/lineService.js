@@ -24,7 +24,7 @@ function addUser(event,username,password) {
 }
 
 function deleteUser(event,id) {
-  userId = userId.filter(e => e!== id)
+  userIds = userIds.filter(e => e!== id)
   delete userObject[id]
   return message(event,`Successfully Deleted!`)
 
