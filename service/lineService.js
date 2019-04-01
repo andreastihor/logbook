@@ -2,7 +2,7 @@ const lineServer = require('../lineServer')
 const {myId, data, userIds, userObject } = require('../container')
 
 function _getUserId(event) {
-  return  event.source.userId
+  return  (event.source.userId).toString()
 }
 
 function checkUserIdExist(event) {
