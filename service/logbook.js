@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 const puppeteer_options ={
   launch: {
-    headless: true,
+    headless: false,
     slowMo: 50,
     args: [
       '--no-sandbox',
@@ -66,7 +66,7 @@ async function fillData(page, data ){
   await $inputs[2].click()
   await $inputs[2].type(data.activity)
   await $inputs[3].click()
-  await $inputs[3].type(data.desc)
+  await $inputs[3].type(data.desciption)
   const button = await page.$('.ui.primary.large.button')
   await button.click()
   await page.waitFor(5000)
