@@ -25,7 +25,7 @@ const lineController = require('../controller/lineController')
 
     if ((event.message.text).toLowerCase().split(',')[0] == "password") {
       const password = event.message.text.split(',')[1]
-      if (password == "") {
+      if (password == undefined ||password == "") {
         return lineController.inComplete(event,`Please FIll Password!`)
       }
       return lineController.changePasswordPost(event,password)
