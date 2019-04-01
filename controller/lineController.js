@@ -6,7 +6,7 @@ function addUserGet(event) {
 }
 
 function addUserPost(event,username,password) {
-  if(! service.checkUserIdExist(event)) return service.message(event,`You're id is Not Registered yet!`)
+  if(!service.checkUserIdExist(event)) return service.message(event,`You're id is Not Registered yet!`)
   return service.addUser(event,username,password)
 }
 
