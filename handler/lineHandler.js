@@ -53,7 +53,7 @@ const lineController = require('../controller/lineController')
     }
 
     if ((event.message.text).toLowerCase() == "/get user id") {
-      return lineController.getCommand(event)
+      return lineController.getUserId(event)
     }
 
     if ((event.message.text).toLowerCase() == "/help") {
