@@ -41,7 +41,7 @@ const lineController = require('../controller/lineController')
 
     if ((event.message.text).toLowerCase().split(',')[0] =="delete") {
       const id = event.message.text[1]
-      console.log("id," id);
+      console.log("id,", id);
       if (id == undefined || id == "") {
         return lineController.inComplete(event,`Please fill in id!`)
       }
