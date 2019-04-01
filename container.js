@@ -1,6 +1,6 @@
 const myId = `U85303935ae66482dd859deea2d99b0ae`
 
-const data = {
+let data = {
   status : 'IDLE',
   in : '',
   out : '',
@@ -8,8 +8,8 @@ const data = {
   description : ''
 }
 
-const userIds = []
-const userObject = {}
+let userIds = []
+let userObject = {}
 
 module.exports = {
   myId,

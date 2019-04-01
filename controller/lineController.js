@@ -56,6 +56,9 @@ function changePasswordPost(event,password) {
   if (!service.checkUserObjExist(event)) {
     return service.message(event,`Register your username and password first!`)
   }
+  if(password == undefined || password == "") {
+    return service.message(event,`Please Fill Password First!`)
+  }
   return service.changePassword(event,password)
 }
 
