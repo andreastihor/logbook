@@ -52,6 +52,10 @@ const lineController = require('../controller/lineController')
       return lineController.insertUserIdPost(event,id)
     }
 
+    if ((event.message.text).toLowerCase() == "/get user id") {
+      return lineController.getCommand(event)
+    }
+
     if ((event.message.text).toLowerCase() == "/help") {
       return lineController.getCommand(event)
     }
