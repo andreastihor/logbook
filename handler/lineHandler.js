@@ -11,7 +11,7 @@ const lineController = require('../controller/lineController')
       if (data[1] = "" || data[2] == "") {
         lineController.inComplete(event,"Please fill username or password")
       }
-      return lineController.insertUser(event,data[1],data[2])
+      return lineController.addUserPost(event,data[1],data[2])
     }
 
     if ((event.message.text).toLowerCase() == "/check user") {
