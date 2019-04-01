@@ -94,7 +94,7 @@ function inComplete(event,message) {
   return service.message(event,message)
 }
 
-module.exports.lineController = {
+module.exports = {
   addUserGet,
   addUserPost,
   updateUserGet,
