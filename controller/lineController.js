@@ -21,7 +21,6 @@ function deleteUserGet(event) {
 }
 
 function _checkAdmin (event) {
-
   if (service.isAdmin(event)) return true
   return false
 }
@@ -51,7 +50,7 @@ function inserUserIdGet(event) {
 
 function insertUserIdPost(event,id) {
   if (!_checkAdmin(event)) {
-    return service.message(`Youre'not admin`)
+    return service.message(event,`Youre'not admin`)
   }
   return service.insertId(event,id)
 }
@@ -94,7 +93,7 @@ function getAdminCommand(event) {
     '/check user id',
   ]
   if (!_checkAdmin(event)) {
-    return service.message(`Youre'not admin`)
+    return service.message(event,`Youre'not admin`)
   }
   return service.message(event,help.toString())
 }
