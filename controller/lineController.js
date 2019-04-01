@@ -15,7 +15,7 @@ function updateUserGet(event) {
     ex : update,username,password`)
 }
 
-function deleteUserGet(event) {a
+function deleteUserGet(event) {
   return service.message(event,`Please input userId start with delete Keyword,
     ex : delete,userId`)
 }
