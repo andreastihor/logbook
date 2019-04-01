@@ -6,6 +6,7 @@ function _getUserId(event) {
 }
 
 function checkUserIdExist(event) {
+  console.log(userIds.indexOf(_getUserId(event)))
    if (userIds.indexOf( _getUserId(event) ) >= 0  ) return true
    return false
 }
