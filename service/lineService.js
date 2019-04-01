@@ -35,7 +35,7 @@ function checkUsers(event) {
 }
 
 function insertId(event,id) {
-  userId.push(id)
+  usersId.push(id)
   return message(event,`User Id Inserted!!`)
 }
 
