@@ -27,21 +27,21 @@ function _checkAdmin (event) {
 
 function deleteUserPost(event,id) {
   if (!_checkAdmin(event)) {
-    return service.message(event,`Youre'not admin`)
+    return service.message(event,`Youre'not admin ask andreas for this!`)
   }
   return service.deleteUser(event,id)
 }
 
 function checkUsers(event) {
   if (!_checkAdmin(event)) {
-    return service.message(event,`Youre'not admin`)
+    return service.message(event,`Youre'not admin ask andreas for this!`)
   }
   return service.checkUsers(event)
 }
 
 function inserUserIdGet(event) {
   if (!_checkAdmin(event)) {
-    return service.message(event,`Youre'not admin`)
+    return service.message(event,`Youre'not admin ask andreas for this!`)
   }
   if(service.checkUserIdExist(event)) return service.message(event,`You're id has already been registered!`)
   return service.message(event,`Please insert userId start with insertid,
@@ -50,7 +50,7 @@ function inserUserIdGet(event) {
 
 function insertUserIdPost(event,id) {
   if (!_checkAdmin(event)) {
-    return service.message(event,`Youre'not admin`)
+    return service.message(event,`Youre'not admin ask andreas for this!`)
   }
   return service.insertId(event,id)
 }
@@ -81,6 +81,8 @@ function getCommand(event) {
     '/change password',
     '/get user id',
     '/admin' ,
+    '/input data' ,
+    '/send'
   ]
   return service.message(event,help.toString())
 }
@@ -91,9 +93,11 @@ function getAdminCommand(event) {
     '/delete user',
     '/check user',
     '/check user id',
+    '/check data'
+
   ]
   if (!_checkAdmin(event)) {
-    return service.message(event,`Youre'not admin`)
+    return service.message(event,`Youre'not admin ask andreas for this!`)
   }
   return service.message(event,help.toString())
 }
@@ -107,7 +111,34 @@ function inComplete(event,message) {
 }
 
 function checkUserIds(event) {
+  if (!_checkAdmin(event)) {
+    return service.message(event,`Youre'not admin ask andreas for this!`)
+  }
   return service.checkUserIds(event)
+}
+//new
+function inputData(event) {
+  checkData(event)
+  return service.message(event,`Please input in out activity and description,
+    ex : data,10,10,test,test`)
+
+}
+
+function checkData(event) {
+  if (service.checkDataInUsed(event)) { return service.message(event,`Data is inused, comeback later!`) }
+  return
+}
+
+function insertData(event,data) {
+  checkData(event)
+  return service.addData(event,data)
+}
+function getData(event) {
+  return service.getData(event)
+}
+
+function sendData(event) {
+  return service.sendData(event)
 }
 
 module.exports = {
@@ -125,7 +156,10 @@ module.exports = {
   getCommand,
   getAdminCommand,
   checkUserIds,
-
+  inputData,
+  insertData,
+  getData,
+  sendData,
 
   notFound,
   inComplete,

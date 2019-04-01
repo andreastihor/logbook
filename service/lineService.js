@@ -1,5 +1,6 @@
 const lineServer = require('../lineServer')
 let {myId, data, userIds, userObject } = require('../container')
+const logbook = require('./logbook')
 
 function _getUserId(event) {
   return  (event.source.userId).toString()
@@ -16,7 +17,7 @@ function isAdmin(event) {
 }
 
 function addUser(event,username,password) {
-  userObject[event.source.userId] = {
+  userObject[_getUserId(event)] = {
     username,
     password,
   }
@@ -62,6 +63,64 @@ function checkUserIds(event) {
   return message(event,userIds.toString())
 }
 
+//new
+function checkDataInUsed(event) {
+  if (data.status == "USED") {
+    if (data.id  == _getUserId(event)) {
+        return false
+    }
+    return true
+  }
+  return false
+}
+
+
+
+function getData(event) {
+  return message(event,JSON.stringify(data))
+}
+
+function addData(event,x) {
+  data.status = "USED"
+  data.id = _getUserId(event)
+  data.in = x[0]
+  data.out = x[1]
+  data.activity = x[2]
+  data.description = x[3]
+
+  setTimeout(() => {
+    data.id = ''
+    data.status = "IDLE"
+    data.in = ""
+    data.out = ""
+    data.activity = ""
+    data.description = ""
+  },180000)
+  return message(event,"Successfully Inserted data!")
+}
+
+async function sendData(event) {
+  if (data.status == "IDLE") {
+    return message(event,"Please fill data first!")
+  }
+
+  if (data.id != _getUserId(event)) {
+    return  message(event,`Cant send data, this is not your data`)
+  }
+
+  const userData = userObject[_getUserId(event)]
+  console.log(userData);
+  if (userData == undefined) {
+    return message(event,`Please register your id first!`)
+  }
+
+  const {username, password} = userData
+  data.username = username
+  data.password = password
+
+  const pesan = await logbook(data)
+  message(event,pesan)
+}
 
 function message(event,message) {
   return lineServer.replyMessage(event.replyToken, {
@@ -81,8 +140,10 @@ module.exports = {
   changePassword,
   getUserId,
   checkUserIds,
-
-
+  addData,
+  checkDataInUsed,
+  getData,
+  sendData,
   message,
 
 }
