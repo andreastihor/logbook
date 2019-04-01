@@ -27,6 +27,9 @@ function _checkAdmin(event) {
 
 function deleteUserPost(event,id) {
   _checkAdmin(event)
+  if (id == undefined || id == "") {
+    return service.message(event,`please fill user id!`)
+  }
   return service.deleteUser(event,id)
 }
 
