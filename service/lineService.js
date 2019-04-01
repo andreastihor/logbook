@@ -1,5 +1,5 @@
 const lineServer = require('../lineServer')
-const {myId, data, userId, userObject } = require('../container')
+const {myId, data, usersId, userObject } = require('../container')
 
 function _getUserId(event) {
   return  event.source.userId
