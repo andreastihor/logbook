@@ -26,9 +26,7 @@ function _checkAdmin(event) {
 }
 
 function deleteUserPost(event,id) {
-  _checkAdmin(event)
-  console.log(id);
-  
+  _checkAdmin(event)  
   return service.deleteUser(event,id)
 }
 
