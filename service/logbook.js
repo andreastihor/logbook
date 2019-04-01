@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 const puppeteer_options ={
   launch: {
-    headless: false,
+    headless: true,
     slowMo: 50,
     args: [
       '--no-sandbox',
