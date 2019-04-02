@@ -25,14 +25,14 @@ async function start(data) {
     await page.setViewport(puppeteer_options.viewport);
     page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36');
 
-    await login(page, data.username, data.password)
+    const error = await login(page, data.username, data.password)
     await fillData(page, data)
     await logout(page,browser)
     return "Successfully Fill Log Book"
   } catch (e) {
       console.log("Error!!!");
       console.log(e);
-      return "Unsuccessfully Fill Logbook, please try again"
+      return `Unsuccessfully Fill Logbook, please try again ${error}`
     }
 }
 
@@ -52,6 +52,12 @@ async function login(page,username,password){
   await fields[1].click()
   await fields[1].type(password)
   await fields[2].click()
+  await page.waitFor(5000)
+  const error = await page.evaluate(() => document.querySelector('.ui.red').innerText)
+  if (error) {
+    return error
+  }
+  return ""
 }
 
 async function fillData(page, data ){
