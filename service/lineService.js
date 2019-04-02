@@ -60,7 +60,7 @@ function checkUserIds(event) {
   if (userIds.length == "") {
     return message(event,"[]")
   }
-  return message(event,userIds.toString())
+  return message(event,userIds.toString().replace(',','\n'))
 }
 
 //new
