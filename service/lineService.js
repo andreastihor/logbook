@@ -95,6 +95,8 @@ function addData(event,x) {
     data.out = ""
     data.activity = ""
     data.description = ""
+    delete data.username
+    delete data.password
   },180000)
   return message(event,"Successfully Inserted data!")
 }
