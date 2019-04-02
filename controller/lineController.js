@@ -84,7 +84,7 @@ function getCommand(event) {
     '/input data' ,
     '/send'
   ]
-  return service.message(event,help.toString().replace(',','\n'))
+  return service.message(event,help.toString().replace(/,/g,'\n'))
 }
 
 function getAdminCommand(event) {
@@ -99,7 +99,7 @@ function getAdminCommand(event) {
   if (!_checkAdmin(event)) {
     return service.message(event,`Youre'not admin ask andreas for this!`)
   }
-  return service.message(event,help.toString().replace(',','\n'))
+  return service.message(event,help.toString().replace(/,/g,'\n'))
 }
 
 function notFound(event) {
