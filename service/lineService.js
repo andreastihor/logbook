@@ -121,7 +121,8 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  return message(event,`${pesan} with \n in :${data.in} \n out: ${data.out} \n activity: ${data.activity} \n description: ${data.description}`)
+  // return message(event,`${pesan} with \n in :${data.in} \n out: ${data.out} \n activity: ${data.activity} \n description: ${data.description}`)
+  return message(event,`${pesan}`)
 }
 
 function message(event,message) {
