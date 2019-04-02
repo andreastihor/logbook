@@ -36,8 +36,11 @@ function checkUsers(event) {
 }
 
 function insertId(event,id) {
-  userIds.push(id)
-  return message(event,`User Id Inserted!!`)
+  if (userIds.indexOf(id) == -1) {
+    userIds.push(id)
+    return message(event,`User Id Inserted!!`)
+  }
+  return message(event,'User has Already been Registered!')
 }
 
 function checkUserObjExist(event) {
@@ -63,7 +66,6 @@ function checkUserIds(event) {
   return message(event,userIds.toString().replace(',','\n'))
 }
 
-//new
 function checkDataInUsed(event) {
   if (data.status == "USED") {
     if (data.id  == _getUserId(event)) {
@@ -121,7 +123,7 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  return message(event,`${pesan} with /n  in :${data.in} /n  out: ${data.out} /n  activity: ${data.activity} /n  description: ${data.description}`)
+  return message(event,`${pesan} with ||  in :${data.in} ||  out: ${data.out} ||  activity: ${data.activity} ||  description: ${data.description}`)
 }
 
 function message(event,message) {

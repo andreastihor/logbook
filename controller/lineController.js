@@ -116,7 +116,7 @@ function checkUserIds(event) {
   }
   return service.checkUserIds(event)
 }
-//new
+
 function inputData(event) {
   checkData(event)
   return service.message(event,`Please input in out activity and description,
