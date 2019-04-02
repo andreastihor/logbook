@@ -55,7 +55,7 @@ async function login(page,username,password){
   await fields[2].click()
   await page.waitFor(5000)
   const error = await page.evaluate(() => document.querySelector('.ui.red').innerText)
-  if (error! = "0") {
+  if (error != "0") {
     throw new Error(error)
   }
 }
