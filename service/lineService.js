@@ -122,7 +122,7 @@ async function sendData(event) {
 
   const pesan = await logbook(data)
   // return message(event,`${pesan} with \n in :${data.in} \n out: ${data.out} \n activity: ${data.activity} \n description: ${data.description}`)
-  return message(event,`${pesan} With \n in : ${data[in]}`)
+  return message(event,`${pesan} With \n in : ${data["in"]}`)
 }
 
 function message(event,message) {
