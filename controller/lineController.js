@@ -82,7 +82,8 @@ function getCommand(event) {
     '/get user id',
     '/admin' ,
     '/input data' ,
-    '/send'
+    '/send',
+    '/sendoff'
   ]
   return service.message(event,help.toString().replace(/,/g,'\n'))
 }
@@ -141,6 +142,10 @@ function sendData(event) {
   return service.sendData(event)
 }
 
+function sendOff(event) {
+  return service.sendOff(event)
+}
+
 module.exports = {
   addUserGet,
   addUserPost,
@@ -160,6 +165,7 @@ module.exports = {
   insertData,
   getData,
   sendData,
+  sendOff,
 
   notFound,
   inComplete,

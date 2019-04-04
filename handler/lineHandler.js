@@ -95,6 +95,10 @@ const lineController = require('../controller/lineController')
       return lineController.sendData(event)
     }
 
+    if(event.message.text.toLowerCase() == "/sendoff") {
+      return lineController.sendData(event)
+    }
+
 
     return lineController.notFound(event)
   }

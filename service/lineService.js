@@ -133,6 +133,28 @@ function message(event,message) {
   });
 }
 
+function sendOff(event) {
+  data.status = "USED"
+  data.id = _getUserId(event)
+  data.in = "Off"
+  data.out = "Off"
+  data.activity = "Off"
+  data.description = "Off"
+
+  setTimeout(() => {
+    data.id = ''
+    data.status = "IDLE"
+    data.in = ""
+    data.out = ""
+    data.activity = ""
+    data.description = ""
+    delete data.username
+    delete data.password
+  },180000)
+
+  return sendData(event)
+}
+
 module.exports = {
   checkUserIdExist,
   isAdmin,
@@ -149,5 +171,6 @@ module.exports = {
   getData,
   sendData,
   message,
+  sendOff,
 
 }
