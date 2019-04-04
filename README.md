@@ -1,2 +1,2 @@
-HOW TO RUN?
- -- this is server version , check service branch --
+YOU CAN NOT RUN THIS.
+this is accesible only on Linebot
