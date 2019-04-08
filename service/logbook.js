@@ -45,7 +45,7 @@ async function logout(page,browser) {
 async function login(page,username,password){
   console.log("Logging in...");
   await page.goto('http://industry.socs.binus.ac.id/learning-plan/auth/login')
-  page.waitForSelector('.ui.stacked.segment')
+  await page.waitForSelector('.field')
   const fields = await page.$$('.field')
   await fields[0].click()
   await fields[0].type(username)

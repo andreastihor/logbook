@@ -84,7 +84,6 @@ const lineController = require('../controller/lineController')
     if (event.message.text.toLowerCase().split('|')[0] == "data") {
       let data = event.message.text.split('|')
       data.shift()
-      console.log(data);
       if (data.length !=4 || ( data[0] == undefined || data[1] == undefined || data[2] == undefined || data[3] == undefined) || (data[0] == "" || data[1] == "" || data[2] == "" || data[3] == "") ) {
         return lineController.inComplete(event,`Please input In, Out , Activity and Description!`)
       }
