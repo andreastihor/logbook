@@ -32,7 +32,7 @@ function deleteUser(event,id) {
 }
 
 function checkUsers(event) {
-  return message(event,JSON.stringify(userObject))
+  return message(event,JSON.stringify(userObject).replace(/,/,'\n'))
 }
 
 function insertId(event,id) {
