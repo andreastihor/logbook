@@ -120,8 +120,8 @@ function checkUserIds(event) {
 
 function inputData(event) {
   checkData(event)
-  return service.message(event,`Please input in out activity and description,
-    ex : data,10,10,test,test`)
+  return service.message(event,`Please input in out activity and description separated with |,
+    ex : in | out | activity | description`)
 
 }
 
