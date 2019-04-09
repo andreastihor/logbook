@@ -123,7 +123,7 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  return message(event,`${pesan} with ||  in :${data.in} ||  out: ${data.out} ||  activity: ${data.activity} ||  description: ${data.description}`)
+  return message(event,pesan+JSON.stringify(data).replace(/,/g,'\n'))
 }
 
 function message(event,message) {
