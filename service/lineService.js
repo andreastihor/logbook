@@ -123,8 +123,7 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  console.log(pesan);
-  return message(event,pesan)
+  return message(event,`${pesan} with ||  in :${data.in} ||  out: ${data.out} ||  activity: ${data.activity} ||  description: ${data.description}`)
 }
 
 function message(event,message) {
@@ -134,7 +133,27 @@ function message(event,message) {
   });
 }
 
+function sendOff(event) {
+  data.status = "USED"
+  data.id = _getUserId(event)
+  data.in = "Off"
+  data.out = "Off"
+  data.activity = "Off"
+  data.description = "Off"
 
+  setTimeout(() => {
+    data.id = ''
+    data.status = "IDLE"
+    data.in = ""
+    data.out = ""
+    data.activity = ""
+    data.description = ""
+    delete data.username
+    delete data.password
+  },180000)
+
+  return sendData(event)
+}
 
 module.exports = {
   checkUserIdExist,
@@ -152,5 +171,6 @@ module.exports = {
   getData,
   sendData,
   message,
+  sendOff,
 
 }

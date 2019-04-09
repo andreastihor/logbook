@@ -28,25 +28,23 @@ async function start(data) {
     await login(page, data.username, data.password)
     await fillData(page, data)
     await logout(page,browser)
-    return "Sucessfully fill logbook!"
+    return "Successfully Fill Log Book"
   } catch (e) {
       console.log("Error!!!");
       console.log(e);
-      return "Error filling logbook, please try again"
-      await browser.close()
+      return `Unsuccessfully Fill Logbook, please try again `
     }
 }
 
 async function logout(page,browser) {
   console.log("logging out..");
-  await page.waitFor(5000)
-  await page.goto('https://industry.socs.binus.ac.id/learning-plan/logout')
+  await page.goto('http://industry.socs.binus.ac.id/learning-plan/logout')
   await browser.close()
 }
 
 async function login(page,username,password){
   console.log("Logging in...");
-  await page.goto('https://industry.socs.binus.ac.id/learning-plan/auth/login')
+  await page.goto('http://industry.socs.binus.ac.id/learning-plan/auth/login')
   await page.waitForSelector('.field')
   const fields = await page.$$('.field')
   await fields[0].click()
