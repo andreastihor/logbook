@@ -128,8 +128,9 @@ async function sendData(event) {
   delete temp.password
   delete temp.status
   delete temp.id
-  console.log(temp);
-  return message(event,pesan+"   "+JSON.stringify(temp).replace(/,/g,'\n'))
+  const x = JSON.stringify(temp).replace(/,/g,'\n')
+  console.log(x);
+  return message(event,pesan+"   "+x)
 }
 
 function message(event,message) {
