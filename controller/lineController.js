@@ -145,10 +145,10 @@ function sendData(event) {
 function sendOff(event) {
   checkData(event)
   const data = {
-    in: off,
-    out : off,
-    activity: off,
-    description : off
+    in: "off",
+    out : "off",
+    activity: "off",
+    description : "off"
   }
   service.addData(event,data)
   service.sendData(event)
