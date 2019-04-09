@@ -123,6 +123,7 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
+  console.log(pesan);
   return message(event,pesan)
 }
 
