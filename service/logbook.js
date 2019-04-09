@@ -32,12 +32,14 @@ async function start(data) {
   } catch (e) {
       console.log("Error!!!");
       console.log(e);
-      return `Unsuccessfully Fill Logbook, please try again ${e}`
+      return `Unsuccessfully Fill Logbook, please try again `
+      await browser.close()
     }
 }
 
 async function logout(page,browser) {
   console.log("logging out..");
+  await page.waitFor(5000)
   await page.goto('http://industry.socs.binus.ac.id/learning-plan/logout')
   await browser.close()
 }
