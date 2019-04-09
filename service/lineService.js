@@ -144,7 +144,7 @@ function message(event,message) {
   });
 }
 
-function sendOff(event) {
+async function sendOff(event) {
   data.status = "USED"
   data.id = _getUserId(event)
   data.in = "Off"
