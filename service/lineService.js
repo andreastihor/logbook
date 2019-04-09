@@ -123,18 +123,8 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  if (pesan == 200) {
-    return lineServer.replyMessage(event.replyToken, {
-      type: 'text',
-      text: "Successfully fill Log Book!",
-    });
-  }
-  else {
-    return lineServer.replyMessage(event.replyToken, {
-      type: 'text',
-      text: "FAILED TO FILL LOG BOOK, TRY AGAIN!!!",
-    });
-  }
+  console.log(pesan);
+  return message(event,pesan)
 }
 
 function message(event,message) {
