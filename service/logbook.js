@@ -32,7 +32,7 @@ async function start(data) {
   } catch (e) {
       console.log("Error!!!");
       console.log(e);
-      return `Unsuccessfully Fill Logbook, please try again `
+      return "Unsuccessfully Fill Logbook, please try again"
       await browser.close()
     }
 }
