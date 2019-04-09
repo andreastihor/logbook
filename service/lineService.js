@@ -123,7 +123,7 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  return message(event,pesan+data)
+  return message(event,pesan+"   "+JSON.stringify(data))
 }
 
 function message(event,message) {
