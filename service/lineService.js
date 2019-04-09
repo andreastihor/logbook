@@ -122,10 +122,10 @@ async function sendData(event) {
   data.username = username
   data.password = password
 
-  const pesan = await logbook(data)
-  const message = `${pesan} with in ${data.in} || out ${data.out} || activity ${data.activity} || description ${data.description} !`
-  console.log(message);
-  return message(event,message)
+  const reply = await logbook(data)
+  const pesan = `${pesan} with in ${data.in} || out ${data.out} || activity ${data.activity} || description ${data.description} !`
+  console.log(pesan);
+  return message(event,pesan)
 }
 
 function message(event,message) {
