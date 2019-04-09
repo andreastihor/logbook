@@ -163,7 +163,7 @@ async function sendOff(event) {
     delete data.password
   },180000)
 
-  await sendData(event)
+  return await sendData(event)
 }
 
 module.exports = {
