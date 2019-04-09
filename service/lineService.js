@@ -122,7 +122,7 @@ async function sendData(event) {
   data.username = username
   data.password = password
 
-  const reply = await logbook(data)
+  const pesan = await logbook(data)
   return message(event,pesan+data)
 }
 
