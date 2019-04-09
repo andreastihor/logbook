@@ -124,9 +124,17 @@ async function sendData(event) {
 
   const pesan = await logbook(data)
   if (pesan == 200) {
-    return message(event,"Sucessfully fill Log book!")
+    return lineServer.replyMessage(event.replyToken, {
+      type: 'text',
+      text: "Successfully fill Log Book!",
+    });
   }
-  return message(event,'FAILED!!! please try again!')
+  else {
+    return lineServer.replyMessage(event.replyToken, {
+      type: 'text',
+      text: "FAILED TO FILL LOG BOOK, TRY AGAIN!!!",
+    });
+  }
 }
 
 function message(event,message) {
