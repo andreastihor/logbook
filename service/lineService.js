@@ -123,8 +123,10 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  console.log(pesan);
-  return message(event,pesan)
+  if (pesan == 200) {
+    return message(event,"Sucessfully fill Log book!")
+  }
+  return message(event,'FAILED!!! please try again!')
 }
 
 function message(event,message) {
