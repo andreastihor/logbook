@@ -60,6 +60,7 @@ async function login(page,username,password){
 }
 
 async function fillData(page, data ){
+  await page.goto('https://industry.socs.binus.ac.id/learning-plan/student/log-book/insert')
   await page.waitFor(3000)
   console.log("Filling Data ... ");
   await page.waitForSelector('.ui.form')
