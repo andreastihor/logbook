@@ -123,7 +123,10 @@ async function sendData(event) {
   data.password = password
 
   const pesan = await logbook(data)
-  return message(event,pesan+"\n"+JSON.stringify(data).replace(/,/g,'\n'))
+  if (pesan == 200) {
+    return message(event,"Sucessfully insert data!")
+  }
+  return message(event,"Error, Please try again")
 }
 
 function message(event,message) {

@@ -28,11 +28,11 @@ async function start(data) {
     await login(page, data.username, data.password)
     await fillData(page, data)
     await logout(page,browser)
-    return "Successfully Fill Log Book"
+    return 200
   } catch (e) {
       console.log("Error!!!");
       console.log(e);
-      return `Unsuccessfully Fill Logbook, please try again `
+      return 500
     }
 }
 
